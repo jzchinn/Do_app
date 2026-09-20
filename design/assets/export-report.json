@@ -1,0 +1,79 @@
+[
+  {
+    "file": "icon.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 53661,
+    "transparent": false
+  },
+  {
+    "file": "android-icon-foreground.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 10092,
+    "transparent": true
+  },
+  {
+    "file": "android-icon-background.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 1943,
+    "transparent": false
+  },
+  {
+    "file": "android-icon-monochrome.png",
+    "width": 432,
+    "height": 432,
+    "bytes": 8118,
+    "transparent": true
+  },
+  {
+    "file": "splash-icon.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 46476,
+    "transparent": true
+  },
+  {
+    "file": "favicon.png",
+    "width": 48,
+    "height": 48,
+    "bytes": 1888,
+    "transparent": false
+  },
+  {
+    "file": "do-cheers-v01.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 45475,
+    "transparent": true
+  },
+  {
+    "file": "react-logo.png",
+    "width": 100,
+    "height": 100,
+    "bytes": 2925,
+    "transparent": true
+  },
+  {
+    "file": "react-logo@2x.png",
+    "width": 200,
+    "height": 200,
+    "bytes": 6162,
+    "transparent": true
+  },
+  {
+    "file": "react-logo@3x.png",
+    "width": 300,
+    "height": 300,
+    "bytes": 9604,
+    "transparent": true
+  },
+  {
+    "file": "partial-react-logo.png",
+    "width": 518,
+    "height": 316,
+    "bytes": 11534,
+    "transparent": true
+  }
+]
