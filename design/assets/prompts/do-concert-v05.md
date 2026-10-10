@@ -18,7 +18,7 @@ Transparent v02–v04 outputs contained unintended alpha damage inside otherwise
 - Palette: forest #1E5128 foreground; lime #D8E9A8 temporary export background.
 - Lighting: graphic negative-space spotlight only, no tonal lighting.
 - Master: opaque square PNG, requested 1024×1024; preserve original in `design/assets/masters/do-concert-v05.png`.
-- Export: `assets/images/do-concert-v05.png`, 192×192, genuine transparency derived from ink separation, contain and preserve aspect ratio.
+- Export: `assets/images/illustrations/do-concert-v05.png`, 192×192, genuine transparency derived from ink separation, contain and preserve aspect ratio.
 - No text, noise, gradients, extra objects or people.
 - Tool: built-in image_gen; model/seed not exposed.
 

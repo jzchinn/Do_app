@@ -11,7 +11,7 @@ Status: selected for delivery after visual QA; rendering awaits user review.
 - Registry points to this revision. Original v01 retained. No screen layout changes; device/in-screen placement remains pending.
 
 - Purpose / screen / state: small decorative onboarding activity icon; no actual attendees represented.
-- References: `design/assets/masters/do-board-game-v01.png` is edit target; `assets/images/do-cheers-v01.png` is style reference. `prompt_material/Login.PNG` supplies placement/scale context only.
+- References: `design/assets/masters/do-board-game-v01.png` is edit target; `assets/images/illustrations/do-cheers-v01.png` is style reference. `prompt_material/Login.PNG` supplies placement/scale context only.
 - Subject / action / change: Monopoly-style perimeter property track instead of checkerboard.
 - Style / palette / lighting: rounded flat low-detail silhouette, forest #1E5128; spotlight represented graphically with negative space, no tonal lighting.
 - Composition / perspective / clear space: square contained canvas, ~7% padding; preserve playful board tilt or audience stage view.
@@ -20,7 +20,7 @@ Status: selected for delivery after visual QA; rendering awaits user review.
 - Embedded text: none.
 - Preserve: original v01 files, family style and aspect ratio.
 - Avoid: checker pattern on board; oversized microphone; noise, gradients, opaque backdrop, extra scenery.
-- Destination: `assets/images/do-board-game-v02.png`, master in `design/assets/masters/do-board-game-v02.png`.
+- Destination: `assets/images/illustrations/do-board-game-v02.png`, master in `design/assets/masters/do-board-game-v02.png`.
 - Tool: built-in image_gen; model/seed not exposed.
 
 ## Actual prompt

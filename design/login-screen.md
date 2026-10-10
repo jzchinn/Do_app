@@ -33,7 +33,7 @@ Image `className` sizes must be explicit `w-`/`h-` values. `aspect-[a/b]` did no
 | Provider logos | `assets/images/login/provider-{google,apple,facebook}-v01.png` | `swift design/scripts/export-provider-logos.swift` (macOS only; input: SVGs in `design/assets/masters/provider-logos/`) |
 | Activity icons | `assets/images/illustrations/do-{hiking-v01,concert-v05,board-game-v02}.png` (tinted lime in code) | `node design/scripts/export-onboarding-icons.cjs` |
 
-Run scripts from the app root. The Node scripts use `jimp-compact`, which is already in `node_modules` through Expo (no dependency was added). All three login scripts are deterministic; re-running them reproduces the committed files byte for byte (checked 2026-10-10). Details, limits and sources: `design/assets/prompts/login-assets-v01.md`.
+Run scripts from the app root. The Node scripts use `jimp-compact`, declared as an exact-pinned dev dependency in `package.json` (run `npm install` first). All three login scripts are deterministic; re-running them reproduces the committed files byte for byte (checked 2026-10-10). Details, limits and sources: `design/assets/prompts/login-assets-v01.md`.
 
 ## Run and preview
 - `npx expo start --ios` (iOS simulator uses Expo Go). Headless web (`--web`) ignores some `Image` sizing, so it is not a reliable check.

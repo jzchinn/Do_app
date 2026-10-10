@@ -47,7 +47,7 @@ White #FFFFFF and a proposed lime-tinted surface #F4F8E9 are supporting neutrals
 - Original and inspiration files: `design/references/` (`do/`, `starter-before/`).
 - Original selected generated outputs: `design/assets/masters/`.
 - Actual generation briefs and iteration notes: `design/assets/prompts/`.
-- Export recipe: `node design/scripts/export-assets.cjs`. Uses already-installed Jimp through Expo's dependency tree; no dependencies added.
+- Export recipe: `node design/scripts/export-assets.cjs`. Uses `jimp-compact`, a pinned dev dependency in `package.json`.
 - Pixel dimensions, byte sizes and transparency intent: `design/assets/exports/export-report.json`.
 - Visual QA montage: `design/assets/exports/asset-preview.png`.
 

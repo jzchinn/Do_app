@@ -1,6 +1,6 @@
 [
   {
-    "file": "assets/images/do-hiking-v01.png",
+    "file": "assets/images/illustrations/do-hiking-v01.png",
     "width": 192,
     "height": 192,
     "masterWidth": 1254,
@@ -12,7 +12,7 @@
     "maximumAlpha": 254
   },
   {
-    "file": "assets/images/do-concert-v05.png",
+    "file": "assets/images/illustrations/do-concert-v05.png",
     "width": 192,
     "height": 192,
     "masterWidth": 1254,
@@ -24,7 +24,7 @@
     "maximumAlpha": 255
   },
   {
-    "file": "assets/images/do-board-game-v02.png",
+    "file": "assets/images/illustrations/do-board-game-v02.png",
     "width": 192,
     "height": 192,
     "masterWidth": 1254,
@@ -36,7 +36,7 @@
     "maximumAlpha": 254
   },
   {
-    "file": "assets/images/do-picnic-v01.png",
+    "file": "assets/images/illustrations/do-picnic-v01.png",
     "width": 192,
     "height": 192,
     "masterWidth": 1254,
