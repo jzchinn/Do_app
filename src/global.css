@@ -90,3 +90,50 @@
   font-size: 11px;
   line-height: 1.4;
 }
+
+/*
+ * Login / auth buttons (BEM). Block: auth-button. Modifiers pick the provider look;
+ * the label element carries the text style and color for each modifier.
+ * Sizes come from the login mockup at 390pt wide.
+ */
+@utility auth-button {
+  @apply h-[47px] w-full flex-row items-center justify-center gap-2.5 rounded-full border;
+}
+
+@utility auth-button--google {
+  @apply border-grass bg-background;
+}
+
+@utility auth-button--apple {
+  @apply border-charcoal bg-charcoal;
+}
+
+@utility auth-button--facebook {
+  @apply border-forest bg-forest;
+}
+
+@utility auth-button--email {
+  @apply h-[45px] border-grass bg-surface;
+}
+
+@utility auth-button__label {
+  font-family: var(--font-poppins-medium);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+@utility auth-button__label--dark {
+  @apply text-charcoal;
+}
+
+@utility auth-button__label--light {
+  @apply text-background;
+}
+
+@utility auth-button__label--lime {
+  @apply text-lime;
+}
+
+@utility auth-button__label--forest {
+  @apply font-poppins-semibold text-forest;
+}

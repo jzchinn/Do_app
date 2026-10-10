@@ -1,0 +1,50 @@
+[
+  {
+    "file": "assets/images/illustrations/do-hiking-v01.png",
+    "width": 192,
+    "height": 192,
+    "masterWidth": 1254,
+    "masterHeight": 1254,
+    "bytes": 20960,
+    "transparentPixels": 24058,
+    "nonzeroAlphaPixels": 12806,
+    "minimumAlpha": 0,
+    "maximumAlpha": 254
+  },
+  {
+    "file": "assets/images/illustrations/do-concert-v05.png",
+    "width": 192,
+    "height": 192,
+    "masterWidth": 1254,
+    "masterHeight": 1254,
+    "bytes": 8889,
+    "transparentPixels": 15914,
+    "nonzeroAlphaPixels": 20950,
+    "minimumAlpha": 0,
+    "maximumAlpha": 255
+  },
+  {
+    "file": "assets/images/illustrations/do-board-game-v02.png",
+    "width": 192,
+    "height": 192,
+    "masterWidth": 1254,
+    "masterHeight": 1254,
+    "bytes": 26977,
+    "transparentPixels": 26866,
+    "nonzeroAlphaPixels": 9998,
+    "minimumAlpha": 0,
+    "maximumAlpha": 254
+  },
+  {
+    "file": "assets/images/illustrations/do-picnic-v01.png",
+    "width": 192,
+    "height": 192,
+    "masterWidth": 1254,
+    "masterHeight": 1254,
+    "bytes": 20437,
+    "transparentPixels": 24015,
+    "nonzeroAlphaPixels": 12849,
+    "minimumAlpha": 0,
+    "maximumAlpha": 254
+  }
+]
