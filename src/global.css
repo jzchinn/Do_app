@@ -137,3 +137,35 @@
 @utility auth-button__label--forest {
   @apply font-poppins-semibold text-forest;
 }
+
+/*
+ * Email auth form (BEM). Block: auth-field, a rounded card holding a small label
+ * and its input. The eye toggle sits inside the password field.
+ */
+@utility auth-field {
+  @apply h-[66px] w-full justify-center rounded-2xl border border-lime bg-background px-5;
+}
+
+@utility auth-field__label {
+  font-family: var(--font-poppins);
+  font-size: 12px;
+  line-height: 1.4;
+  @apply text-forest;
+}
+
+@utility auth-field__input {
+  font-family: var(--font-poppins-medium);
+  font-size: 16px;
+  @apply h-[26px] p-0 text-charcoal;
+}
+
+@utility auth-submit {
+  @apply h-[47px] w-full items-center justify-center rounded-full border border-forest bg-forest;
+}
+
+@utility auth-submit__label {
+  font-family: var(--font-poppins-semibold);
+  font-size: 16px;
+  line-height: 1.4;
+  @apply text-lime;
+}
