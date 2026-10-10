@@ -1,0 +1,23 @@
+# login-do-v11-refreshed
+
+- Status: draft restoration of v10, requested replacement of v10 destination.
+- Purpose: static login design; decorative toast photograph, not actual attendees.
+- Inputs: `design/assets/drafts/login-do-v10-icon-carousel.png` (edit target); `design/assets/masters/quan-nguyen-toast-cleaned-v01.png` (photo insert); `prompt_material/Login.PNG` (texture/edge-quality reference only).
+- Display/export: full portrait mockup, 853 × 1844 pixels requested; opaque PNG, preserve aspect ratio.
+- Style/palette: existing dark green, pale yellow-green, white and black; original lighting and composition.
+- Changes: icons down ~28px; clean toast photo in existing Do mask; refresh degraded texture.
+- Preserve: all other composition, typography, colors, controls, icon sizes/opacity, Do outline.
+- Avoid: purple reference palette, additional symbols, warped hands/glasses, layout drift.
+- Destination: sibling `design/assets/drafts/login-do-v11-refreshed.png`, then requested v10 path; original retained as `login-do-v10-icon-carousel-before-refresh.png`.
+- Tool: built-in image generation edit.
+
+## Actual prompt
+
+Edit image 1, the green Do login mockup, with precisely three changes. (1) Translate ALL THREE small upper activity icons DOWN by 28 pixels on the original 853x1844 canvas, about one quarter of the middle trees icon height. Preserve each icon's exact size, horizontal position, orientation, color and opacity: bright pale yellow-green trees/path in middle, faint theatre left, faint board game right. No extra icons. (2) Replace the distorted photograph inside the large central white-outlined Do silhouette with the clean source photograph in image 2. Faithfully use that actual photographic content: realistic original hands and champagne glasses around blue sky, accurate anatomy, crisp glass detail, no painterly distortions or invented hands. Crop to fill the existing Do mask without stretching; keep the mask, outline, dimensions and position exactly unchanged. (3) Refresh degraded texture and blurred graphic edges using image 3 ONLY as a reference for crisp fine directional brushed/grain surface texture and clean UI edges. Keep image 1's existing dark rich green / yellow-green color palette; do not import purple, Meetup branding, people cutouts, or extra doodles from image 3. Retain background's existing broad composition and fade to white, but restore fine natural texture without melted-looking artifacts. Preserve ALL other elements of image 1: status bar, exact text, fonts, layout, spacing, button positions, colors, outlines and corner radii. Text verbatim: 11:04; Let's do something; Continue with Google; Continue with Apple; Continue with Facebook; or; Sign up with email; Log in with email. Retain green 'do', black rest of headline, same brand symbols. Opaque PNG portrait 853x1844, same aspect ratio. This is a localized restoration, not a redesign.
+## QA and corrective attempts
+
+Visually inspected generated outputs. Selected first result: photo detail and texture are cleaner; text and overall layout retained. Icons moved down approximately 48px rather than requested 28px. Two corrections over-raised the icons and were rejected. Selected original first result because all three icons retain their relative composition and move downward as requested. Exact positioning remains a limitation. This is a generative photo reconstruction, not a pixel-exact photo paste. No app integration or code changes.
+
+Correction attempt 1: Make ONE tiny positional correction to this image. Move all three upper activity icons UP by exactly 20 pixels on this 853x1844 canvas. Current central trees top is about y203; desired top y183, bottom y293. Move left theatre and right board-game icons up by exactly same 20 pixels. Keep their size, horizontal position, color, opacity and shapes unchanged. Everything else is locked: preserve the newly clean toast photograph, Do outline, sharp green background texture, all text and buttons, status bar, and entire composition. Do not repaint or change photo or texture except seamlessly filling the old icon positions. Opaque 853x1844 PNG.
+
+Correction attempt 2: Local edit: three icons only. Shift each icon upward by a SMALL amount, 20 pixels, about one-sixth of the tree height. Do not move them by half an icon height. Central tree should occupy y183 to294; theatre y228 to284; board game y218 to294 in this 853 by1844 image. Keep the faint side icons faint. Keep every other pixel visually identical: background fine green texture, clean toast photo, Do silhouette, text, status bar, buttons. No redesign. Original image here has tree at y203, so desired shift is just 20 pixels upward.

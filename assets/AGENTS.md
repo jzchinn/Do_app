@@ -22,12 +22,12 @@ Context inspected when these rules were written:
 - `prompt_material/01-design-system.png`: a **Lingua** reference with a fox mascot, Poppins typography, and purple/blue/green colors. This is an available reference, not evidence that Do has adopted that brand.
 - Other files in `prompt_material/` include onboarding, auth, language selection, home/navigation, and lesson references. Use only the elements relevant to the requested Do screen.
 - `assets/fonts/` contains Poppins Regular, Medium, SemiBold, and Bold. Availability alone does not establish a typography decision.
-- `assets/images/` contains mascot, treasure, globe, palace, fire, React, and platform images. Presence does not establish approval or permission to replace a file.
+- `assets/images/` (`app/`, `illustrations/`, `login/`) contains Do artwork, launcher/splash images, login art, and starter-named logo files. Presence does not establish approval or permission to replace a file.
 - `src/app/index.tsx` is a minimal “Do Something” screen; `src/global.css` currently contains framework imports, not a complete Do design system.
 
 Do not silently adopt Lingua's wordmark, fox, palette, lesson imagery, or gamification as Do's identity. When the user selects a reference, match its relevant visual properties closely and record which properties were selected. Do not promise pixel-identical generative output.
 
-If a brand decision is genuinely needed and absent, ask one focused question while preparing independent work. Routine choices may use stated provisional assumptions; do not stop for approval already given. Record enduring choices in `design/assets/style-guide.md` when the first asset work needs it. Distinguish accepted decisions from proposals.
+If a brand decision is genuinely needed and absent, ask one focused question while preparing independent work. Routine choices may use stated provisional assumptions; do not stop for approval already given. Record enduring choices in `design/style-guide.md` when the first asset work needs it. Distinguish accepted decisions from proposals.
 
 ## Choose the right asset method
 
@@ -82,15 +82,25 @@ For a new family, make one representative asset first, check it against the brie
 Keep asset work in the app project so the brief, references, and implementation stay together. Use these locations as needed; do not create empty infrastructure in advance:
 
 ```text
-assets/AGENTS.md                  This workflow
-assets/images/                    Assets consumed by the app
-assets/fonts/                     Existing font files
+assets/                           Runtime only: what the app bundle ships
+  AGENTS.md                       This workflow
+  fonts/                          Font files
+  images/app/                     Launcher, adaptive, splash, and favicon images
+  images/illustrations/           In-app illustrations and logo art
+  images/login/                   Login screen art: texture, Do photo cutout, provider logos
 prompt_material/                  Existing references; preserve originals
-design/assets/style-guide.md      Accepted visual decisions, sources, open questions
-design/assets/references/         Additional selected references
-design/assets/drafts/             Candidate images, excluded from app imports
-design/assets/masters/            Selected original images
-design/assets/prompts/            Briefs, prompts, iterations, and QA notes
+prompts/                          Existing build prompts; preserve originals
+design/                           Everything non-runtime
+  style-guide.md                  Accepted visual decisions, sources, open questions
+  references/do/                  Selected Do references (palette, icon inspiration, design sheet)
+  references/starter-before/      Original starter files from before Do branding
+  assets/prompts/                 Briefs, prompts, iterations, and QA notes
+  assets/masters/                 Selected original images and source files (photos, provider SVGs)
+  assets/unused/                  Shelved assets not in the app build (see its README)
+  assets/drafts/                  Candidate images, excluded from app imports
+  assets/exports/                 Export reports and QA previews
+  scripts/                        Export scripts (masters to assets/images/)
+  login-screen.md                 How the login screen is built and reproduced
 ```
 
 Use lowercase kebab-case with a meaningful role and explicit revision, for example `onboarding-make-plans-v01.png`, `empty-plans-v01.png`, or `plan-confirmed-v02.png`. Use `@2x`/`@3x` only for real density variants of the same asset. Preserve established names where referenced. Do not rename existing files just to tidy them.

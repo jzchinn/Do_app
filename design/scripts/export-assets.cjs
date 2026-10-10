@@ -5,12 +5,13 @@ const path = require('node:path');
 const Jimp = require('jimp-compact');
 
 const root = path.resolve(__dirname, '../..');
+const designAssets = path.join(__dirname, '../assets');
 const forest = [30, 81, 40];
 const lime = [216, 233, 168];
 const rgba = (rgb, alpha = 255) => Jimp.rgbaToInt(...rgb, alpha);
 
 async function main() {
-  const master = await Jimp.read(path.join(__dirname, 'masters/do-cheers-v03.png'));
+  const master = await Jimp.read(path.join(designAssets, 'masters/do-cheers-v03.png'));
   // Separate the generated flat ink from its background for adaptive/monochrome
   // exports, snapping the two inks to the sampled palette and retaining edge alpha.
   const mark = master.clone();
@@ -35,7 +36,9 @@ async function main() {
     }
   });
   const tight = mark.clone().crop(x0, y0, x1 - x0 + 1, y1 - y0 + 1);
-  const output = path.join(root, 'assets/images');
+  const images = path.join(root, 'assets/images');
+  // Launcher/splash/favicon files live in images/app; brand art in images/illustrations.
+  const outputPath = name => path.join(images, /^(icon|splash-icon|favicon|android-icon)/.test(name) ? 'app' : 'illustrations', name);
   const report = [];
   async function write(name, width, height, fraction, background, ink = lime) {
     const canvas = new Jimp(width, height, background ? rgba(background) : 0);
@@ -47,7 +50,7 @@ async function main() {
       shape.scaleToFit(Math.round(width * fraction), Math.round(height * fraction));
       canvas.composite(shape, Math.round((width - shape.bitmap.width) / 2), Math.round((height - shape.bitmap.height) / 2));
     }
-    const destination = path.join(output, name);
+    const destination = outputPath(name);
     await canvas.writeAsync(destination);
     report.push({ file: name, width, height, bytes: (await fs.stat(destination)).size, transparent: !background });
     return canvas;
@@ -64,18 +67,17 @@ async function main() {
   }
   await write('partial-react-logo.png', 518, 316, 0.85, null, forest);
 
-  const sheet = await Jimp.read(path.join(__dirname, 'masters/design-system-v01.png'));
+  const sheet = await Jimp.read(path.join(designAssets, 'masters/design-system-v01.png'));
   sheet.resize(1536, 1024);
-  await sheet.writeAsync(path.join(root, 'assets/01-design-system.png'));
-  await sheet.writeAsync(path.join(root, 'prompt_material/01-design-system.png'));
-  await fs.writeFile(path.join(__dirname, 'export-report.json'), JSON.stringify(report, null, 2) + '\n');
+  await sheet.writeAsync(path.join(__dirname, '../references/do/design-system.png'));
+  await fs.writeFile(path.join(designAssets, 'exports/export-report.json'), JSON.stringify(report, null, 2) + '\n');
 
   // Actual exported pixels at small sizes, transparency on light/dark, adaptive
   // circle mask, and monochrome. QA only; never imported by the app.
   const preview = new Jimp(960, 600, 0xF4F8E9FF);
   preview.composite(icon.clone().resize(240, 240), 30, 30);
   const light = new Jimp(240, 240, 0xFFFFFFFF);
-  light.composite((await Jimp.read(path.join(output, 'do-cheers-v01.png'))).resize(190, 190), 25, 25);
+  light.composite((await Jimp.read(outputPath('do-cheers-v01.png'))).resize(190, 190), 25, 25);
   preview.composite(light, 300, 30);
   const dark = new Jimp(240, 240, 0x191A19FF);
   dark.composite(splash.clone().resize(190, 190), 25, 25);
@@ -89,9 +91,9 @@ async function main() {
   adaptive.crop(85, 85, 342, 342).resize(160, 160).circle();
   preview.composite(adaptive, 450, 320);
   const monochrome = new Jimp(160, 160, rgba(lime));
-  monochrome.composite((await Jimp.read(path.join(output, 'android-icon-monochrome.png'))).crop(72, 72, 288, 288).resize(160, 160), 0, 0).circle();
+  monochrome.composite((await Jimp.read(outputPath('android-icon-monochrome.png'))).crop(72, 72, 288, 288).resize(160, 160), 0, 0).circle();
   preview.composite(monochrome, 660, 320);
-  await preview.writeAsync(path.join(__dirname, 'asset-preview.png'));
+  await preview.writeAsync(path.join(designAssets, 'exports/asset-preview.png'));
   console.log(JSON.stringify(report, null, 2));
 }
 
