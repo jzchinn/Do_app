@@ -1,6 +1,10 @@
+import { useAuth } from "@clerk/expo";
 import { Redirect } from "expo-router";
 
-// The app opens on the login screen. Once Clerk is wired in, this is where signed-in users get routed past it.
+// Signed-in users skip the login screen.
 export default function Index() {
-  return <Redirect href="/login" />;
+  const { isLoaded, isSignedIn } = useAuth();
+
+  if (!isLoaded) return null;
+  return <Redirect href={isSignedIn ? "/home" : "/login"} />;
 }
