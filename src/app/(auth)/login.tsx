@@ -22,6 +22,7 @@ import { AuthButton } from "@/components/AuthButton";
 import { EmailAuthForm } from "@/components/EmailAuthForm";
 import type { EmailAuthMode } from "@/components/EmailAuthForm";
 import { images } from "@/constants/images";
+import { useSocialAuth } from "@/hooks/useSocialAuth";
 
 // Moving on screen uses ease-in-out; entering/exiting content uses ease-out.
 const EASE_IN_OUT = Easing.bezier(0.77, 0, 0.175, 1);
@@ -44,6 +45,7 @@ const FADE_IN = FadeIn.duration(200)
 export default function LoginScreen() {
   // null shows the provider buttons; otherwise the email form for that mode.
   const [emailMode, setEmailMode] = useState<EmailAuthMode | null>(null);
+  const { error: socialError, signInWith } = useSocialAuth();
 
   return (
     <View className="flex-1 bg-background">
@@ -79,7 +81,7 @@ export default function LoginScreen() {
           layout={MOVE}
           accessibilityRole="header"
           className={`text-center font-poppins-bold text-[31px] leading-[38px] tracking-tight text-charcoal ${
-            emailMode ? "mt-[5px]" : "mt-[33px]"
+            emailMode ? "-mt-[42px]" : "mt-[33px]"
           }`}
         >
           {"Let's "}
@@ -99,9 +101,29 @@ export default function LoginScreen() {
         ) : (
           <Animated.View entering={FADE_IN} exiting={FADE_OUT} layout={MOVE}>
             <View className="mt-3.5 gap-[13px] px-[21px]">
-              <AuthButton label="Continue with Google" variant="google" />
-              <AuthButton label="Continue with Apple" variant="apple" />
-              <AuthButton label="Continue with Facebook" variant="facebook" />
+              <AuthButton
+                label="Continue with Google"
+                onPress={() => signInWith("google")}
+                variant="google"
+              />
+              <AuthButton
+                label="Continue with Apple"
+                onPress={() => signInWith("apple")}
+                variant="apple"
+              />
+              <AuthButton
+                label="Continue with Facebook"
+                onPress={() => signInWith("facebook")}
+                variant="facebook"
+              />
+              {socialError ? (
+                <Text
+                  accessibilityRole="alert"
+                  className="text-center text-body-md text-red-600"
+                >
+                  {socialError}
+                </Text>
+              ) : null}
             </View>
 
             <View className="mt-6 flex-row items-center gap-3 px-[21px]">
