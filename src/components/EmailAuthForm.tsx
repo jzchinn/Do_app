@@ -215,22 +215,29 @@ export function EmailAuthForm({ mode, onBack }: EmailAuthFormProps) {
           className="self-center"
           onPress={() => setResetting(true)}
         >
-          <Text className="font-poppins-semibold text-[15px] leading-[22px] text-lime">
+          <Text className="font-poppins-semibold text-[15px] leading-[22px] text-black">
             Forgot password?
           </Text>
         </TouchableOpacity>
       ) : null}
 
-      <TouchableOpacity
-        accessibilityRole="button"
-        activeOpacity={0.6}
-        className="mt-2 self-center border-b-2 border-lime"
-        onPress={resetting ? stopResetting : onBack}
-      >
-        <Text className="font-poppins-semibold text-[15px] leading-[22px] text-charcoal">
-          {resetting ? "Back to log in" : "Back to all options"}
-        </Text>
-      </TouchableOpacity>
+      <View className="mt-2 flex-row flex-wrap items-center justify-center gap-x-1">
+        {resetting ? null : (
+          <Text className="text-[15px] leading-[22px] text-charcoal">
+            Want to sign in a different way?
+          </Text>
+        )}
+        <TouchableOpacity
+          accessibilityRole="button"
+          activeOpacity={0.6}
+          className="border-b-2 border-lime"
+          onPress={resetting ? stopResetting : onBack}
+        >
+          <Text className="font-poppins-semibold text-[15px] leading-[22px] text-charcoal">
+            {resetting ? "Back to log in" : "Back to sign in options"}
+          </Text>
+        </TouchableOpacity>
+      </View>
     </Animated.View>
   );
 }

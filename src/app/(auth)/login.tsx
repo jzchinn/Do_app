@@ -81,7 +81,7 @@ export default function LoginScreen() {
           layout={MOVE}
           accessibilityRole="header"
           className={`text-center font-poppins-bold text-[31px] leading-[38px] tracking-tight text-charcoal ${
-            emailMode ? "mt-[5px]" : "mt-[33px]"
+            emailMode ? "-mt-[42px]" : "mt-[33px]"
           }`}
         >
           {"Let's "}

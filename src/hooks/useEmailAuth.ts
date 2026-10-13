@@ -28,10 +28,27 @@ export function useEmailAuth(mode: EmailAuthMode) {
   const [resetCodeSent, setResetCodeSent] = useState(false);
 
   const goHome: FinalizeNavigate = ({ session, decorateUrl }) => {
-    // Session tasks (e.g. forced MFA enrollment) aren't supported yet.
-    if (session?.currentTask) return;
+    // Session tasks (e.g. forced MFA enrollment) have no screen yet, so say so instead of doing nothing.
+    if (session?.currentTask) {
+      setError(
+        "Your account needs an extra setup step, which isn't supported yet.",
+      );
+      return;
+    }
     router.replace(decorateUrl("/home") as Href);
   };
+
+  // Turns a completed sign-in/sign-up into the active session, showing any error.
+  async function finalize(resource: {
+    finalize: (params: {
+      navigate: FinalizeNavigate;
+    }) => Promise<{ error: ClerkErrorLike }>;
+  }) {
+    const { error: finalizeError } = await resource.finalize({
+      navigate: goHome,
+    });
+    if (finalizeError) setError(messageOf(finalizeError));
+  }
 
   async function run(action: () => Promise<void>) {
     setError(null);
@@ -52,7 +69,7 @@ export function useEmailAuth(mode: EmailAuthMode) {
         });
         if (signInError) return setError(messageOf(signInError));
         if (signIn.status === "complete") {
-          await signIn.finalize({ navigate: goHome });
+          await finalize(signIn);
         } else {
           setError(
             "This account needs extra verification, which isn't supported yet.",
@@ -78,7 +95,7 @@ export function useEmailAuth(mode: EmailAuthMode) {
       );
       if (verifyError) return setError(messageOf(verifyError));
       if (signUp.status === "complete") {
-        await signUp.finalize({ navigate: goHome });
+        await finalize(signUp);
       } else {
         setError(
           "Sign-up needs more information that this form doesn't collect yet.",
@@ -118,7 +135,7 @@ export function useEmailAuth(mode: EmailAuthMode) {
         await signIn.resetPasswordEmailCode.submitPassword({ password });
       if (submitError) return setError(messageOf(submitError));
       if (signIn.status === "complete") {
-        await signIn.finalize({ navigate: goHome });
+        await finalize(signIn);
       } else {
         setError(
           "Password updated, but sign-in needs extra verification, which isn't supported yet.",

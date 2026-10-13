@@ -27,8 +27,19 @@ export function useSocialAuth() {
         strategy: strategies[provider],
       });
       if (createdSessionId && setActive) {
-        await setActive({ session: createdSessionId });
-        router.replace("/home");
+        await setActive({
+          session: createdSessionId,
+          navigate: ({ session }) => {
+            // Session tasks (e.g. forced MFA enrollment) have no screen yet, so say so instead of looping back to login.
+            if (session.currentTask) {
+              setError(
+                "Your account needs an extra setup step, which isn't supported yet.",
+              );
+              return;
+            }
+            router.replace("/home");
+          },
+        });
       } else if (signUp?.status === "missing_requirements") {
         setError(
           "That account is missing required details we can't collect yet.",
