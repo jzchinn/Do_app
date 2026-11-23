@@ -1,23 +1,16 @@
-import { GlassView, isLiquidGlassAvailable } from 'expo-glass-effect';
-import { SymbolView, type SymbolViewProps } from 'expo-symbols';
+import { SymbolView } from 'expo-symbols';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { BottomNav } from '@/components/bottom-nav';
 import { EventCard } from '@/components/event-card';
 import { images } from '@/constants/images';
 import { demoEvents, type EventCategory } from '@/data/demo-events';
 import { colors } from '@/theme/colors';
 
 const categories: EventCategory[] = ['Going', 'Saved', 'Past'];
-const navigation: { label: string; icon: SymbolViewProps['name'] }[] = [
-  { label: 'Home', icon: { ios: 'house.fill', android: 'home', web: 'home' } },
-  { label: 'Explore', icon: { ios: 'magnifyingglass', android: 'search', web: 'search' } },
-  { label: 'Notifications', icon: { ios: 'bell', android: 'notifications', web: 'notifications' } },
-  { label: 'Messages', icon: { ios: 'bubble.right', android: 'chat_bubble', web: 'chat_bubble' } },
-];
-
 type Props = { profileImage?: string; onOpenProfile: () => void };
 
 export function HomeScreen({ profileImage, onOpenProfile }: Props) {
@@ -71,26 +64,11 @@ export function HomeScreen({ profileImage, onOpenProfile }: Props) {
         </View>
         <Text className="mt-1 font-poppins text-[11px] leading-[17px] text-forest">Sample plans and attendees. Saves last for this preview session.</Text>
       </ScrollView>
-      <View className="absolute left-5 right-5" style={{ bottom: Math.max(insets.bottom, 12) }}>
-        <GlassView glassEffectStyle="regular" colorScheme="light" style={[styles.bar, !isLiquidGlassAvailable() && styles.barFallback]}>
-          <View className="flex-row items-stretch p-1">
-            {navigation.map((item, index) => (
-              <TouchableOpacity key={item.label} disabled={index !== 0} accessibilityRole="tab" accessibilityState={{ selected: index === 0, disabled: index !== 0 }} accessibilityLabel={index === 0 ? 'Home' : `${item.label}, coming soon`} onPress={() => setCategory('Going')} activeOpacity={0.8} className={`min-h-[58px] flex-1 items-center justify-center gap-1 rounded-full py-1.5 ${index === 0 ? 'bg-lime/60' : ''}`}>
-                <SymbolView name={item.icon} size={24} tintColor={index === 0 ? colors.forest : colors.charcoal} />
-                <Text className={`font-poppins-medium text-[9px] ${index === 0 ? 'text-forest' : 'text-charcoal'}`}>{item.label}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        </GlassView>
-        <Text className="mt-1 text-center font-poppins text-[9px] text-forest">Explore, notifications & messages coming soon</Text>
-      </View>
+      <BottomNav active="home" onPressActive={() => setCategory('Going')} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   content: { paddingHorizontal: 20 },
-  // Native glass container needs explicit view styles; all content uses NativeWind.
-  bar: { borderRadius: 40, borderWidth: 1.5, borderColor: colors.background, boxShadow: '0 8px 30px rgba(25, 26, 25, 0.12)' },
-  barFallback: { backgroundColor: 'rgba(244, 248, 233, 0.97)' },
 });

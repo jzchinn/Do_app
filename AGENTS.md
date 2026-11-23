@@ -14,6 +14,8 @@ A plan resolves when a particular version and attending subset satisfy all of th
 
 Each user has private lists for people they are comfortable seeing one-on-one (or in a larger group), only with at least three total attendees, or not at all, with per-plan overrides. Honor every selected attendee's preferences; the creator's no-go contacts never see the plan. Acceptance applies to a specific time/location version, not automatically to proposed alternatives.
 
+**List update limit:** a user can update their friend lists (the 1-on-1 / 3+ / 4+ assignments on the Friends screen) only once every 24 hours. An update is saved as a *pending new list*; the user can edit it again, discard unsaved edits, or cancel the pending list entirely. The Friends screen shows "New list in X hrs" while one is pending and "No new list pending" otherwise. The limit must be enforced on the backend (Supabase), not only in the UI, and the countdown uses server time. The Friends screen currently simulates this with local state and a placeholder "X hrs".
+
 Post-resolution expansion and renegotiation remain undecided; ask before implementing them.
 
 ---
