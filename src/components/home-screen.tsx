@@ -8,6 +8,7 @@ import { BottomNav } from '@/components/bottom-nav';
 import { EventCard } from '@/components/event-card';
 import { images } from '@/constants/images';
 import { demoEvents, type EventCategory } from '@/data/demo-events';
+import { useSavedEvents } from '@/store/saved-events';
 import { colors } from '@/theme/colors';
 
 const categories: EventCategory[] = ['Going', 'Saved', 'Past'];
@@ -16,17 +17,8 @@ type Props = { profileImage?: string; onOpenProfile: () => void };
 export function HomeScreen({ profileImage, onOpenProfile }: Props) {
   const insets = useSafeAreaInsets();
   const [category, setCategory] = useState<EventCategory>('Going');
-  const [savedIds, setSavedIds] = useState(() => new Set(demoEvents.filter(event => event.initiallySaved).map(event => event.id)));
+  const { savedIds, toggleSave } = useSavedEvents();
   const events = demoEvents.filter(event => category === 'Going' ? event.status === 'confirmed' : category === 'Past' ? event.status === 'past' : savedIds.has(event.id));
-
-  function toggleSave(id: string) {
-    setSavedIds(current => {
-      const next = new Set(current);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  }
 
   return (
     <View className="flex-1 bg-background">
