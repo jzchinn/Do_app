@@ -1,4 +1,7 @@
 export const images = {
+  homeTennis: require("@/assets/images/home/home-tennis-v01.jpg"),
+  homePicnic: require("@/assets/images/home/home-picnic-v01.jpg"),
+  homeGames: require("@/assets/images/home/home-games-v01.jpg"),
   doCheers: require("@/assets/images/illustrations/do-cheers-v01.png"),
   doHiking: require("@/assets/images/illustrations/do-hiking-v01.png"),
   doConcert: require("@/assets/images/illustrations/do-concert-v05.png"),

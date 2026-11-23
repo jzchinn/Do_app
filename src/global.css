@@ -169,3 +169,20 @@
   line-height: 1.4;
   @apply text-lime;
 }
+
+/* Home event list: reference proportions, Do palette and Poppins. */
+@utility event-filter {
+  @apply min-h-11 items-center justify-center rounded-full px-5 py-2.5;
+}
+
+@utility event-card {
+  @apply mb-6 border-b border-lime/60 pb-5;
+}
+
+@utility event-card__title {
+  @apply font-poppins-semibold text-[15px] leading-[22px] text-charcoal;
+}
+
+@utility event-card__detail {
+  @apply font-poppins text-[12px] leading-[19px] text-charcoal/70;
+}
