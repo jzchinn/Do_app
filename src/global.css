@@ -169,3 +169,108 @@
   line-height: 1.4;
   @apply text-lime;
 }
+
+/* Home event list: reference proportions, Do palette and Poppins. */
+@utility event-filter {
+  @apply min-h-11 items-center justify-center rounded-full px-5 py-2.5;
+}
+
+@utility event-card {
+  @apply mb-6 border-b border-lime/60 pb-5;
+}
+
+@utility event-card__title {
+  @apply font-poppins-semibold text-[15px] leading-[22px] text-charcoal;
+}
+
+@utility event-card__detail {
+  @apply font-poppins text-[12px] leading-[19px] text-charcoal/70;
+}
+
+/* Friends list (BEM). Block: friend-row; the header row reuses the same columns so circles line up. */
+@utility friend-row {
+  @apply min-h-[64px] flex-row items-center border-b border-lime/60 py-2;
+}
+
+@utility friend-row__avatar {
+  @apply mr-3 h-11 w-11 items-center justify-center rounded-full bg-lime;
+}
+
+@utility friend-row__name {
+  @apply flex-1 font-poppins-semibold text-[15px] text-charcoal;
+}
+
+@utility friend-row__column {
+  @apply w-[60px] items-center justify-center;
+}
+
+/* Header labels are tappable pills (the active sort is filled), centered over their circle columns. */
+@utility friend-header {
+  @apply flex-row items-center border-b border-lime/60 pb-2;
+}
+
+/* Name pill spans the whole avatar + name area of the rows. */
+@utility friend-header__name {
+  @apply flex-1 pr-2;
+}
+
+@utility friend-header__pill {
+  @apply h-8 w-[56px] items-center justify-center rounded-full border border-lime bg-surface;
+}
+
+@utility friend-header__pill--wide {
+  @apply w-full;
+}
+
+@utility friend-header__pill--active {
+  @apply border-forest bg-forest;
+}
+
+@utility friend-header__label {
+  @apply text-center font-poppins-semibold text-[13px] text-forest;
+}
+
+@utility friend-header__label--active {
+  @apply text-lime;
+}
+
+@utility friend-row__circle {
+  @apply h-[24px] w-[24px] items-center justify-center rounded-full border-2 border-lime bg-background;
+}
+
+/* New choice while editing */
+@utility friend-row__circle--on {
+  @apply border-grass bg-grass;
+}
+
+/* Not changeable (view mode) or the old choice (edit mode): grayed out */
+@utility friend-row__circle--locked {
+  @apply border-charcoal/15 bg-charcoal/5;
+}
+
+@utility friend-row__circle--locked-on {
+  @apply border-charcoal/20 bg-charcoal/20;
+}
+
+/* Edit list / Done button */
+@utility friends-edit {
+  @apply h-10 flex-row items-center gap-1.5 rounded-full border border-forest bg-background px-4;
+}
+
+/* Confirm / exit buttons while editing: squarer and flatter than the pill buttons so they don't read as menus. */
+@utility friends-confirm {
+  @apply h-10 flex-row items-center gap-1.5 rounded-xl bg-surface px-3.5;
+}
+
+@utility friends-confirm--primary {
+  @apply bg-forest;
+}
+
+/* "Show edits first" toggle: pill like the sort pills; filled while on. */
+@utility friends-toggle {
+  @apply mb-3 h-8 self-start justify-center rounded-full border border-lime bg-surface px-3.5;
+}
+
+@utility friends-toggle--active {
+  @apply border-forest bg-forest;
+}

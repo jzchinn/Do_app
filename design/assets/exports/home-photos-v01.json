@@ -1,0 +1,38 @@
+[
+  {
+    "input": "design/assets/masters/home-tennis-v01.png",
+    "original": {
+      "width": 1619,
+      "height": 971
+    },
+    "output": "assets/images/home/home-tennis-v01.jpg",
+    "width": 480,
+    "height": 294,
+    "bytes": 62844,
+    "transparent": false
+  },
+  {
+    "input": "design/assets/masters/home-picnic-v01.png",
+    "original": {
+      "width": 1619,
+      "height": 971
+    },
+    "output": "assets/images/home/home-picnic-v01.jpg",
+    "width": 480,
+    "height": 294,
+    "bytes": 75131,
+    "transparent": false
+  },
+  {
+    "input": "design/assets/masters/home-games-v01.png",
+    "original": {
+      "width": 1619,
+      "height": 971
+    },
+    "output": "assets/images/home/home-games-v01.jpg",
+    "width": 480,
+    "height": 294,
+    "bytes": 52559,
+    "transparent": false
+  }
+]

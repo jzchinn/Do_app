@@ -8,6 +8,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
 import { fontAssets } from "@/constants/fonts";
+import { SavedEventsProvider } from "@/store/saved-events";
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY ?? "";
 
@@ -34,7 +35,9 @@ export default function RootLayout() {
 
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-      <Stack screenOptions={{ headerShown: false }} />
+      <SavedEventsProvider>
+        <Stack screenOptions={{ headerShown: false }} />
+      </SavedEventsProvider>
     </ClerkProvider>
   );
 }
