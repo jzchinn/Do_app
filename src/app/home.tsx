@@ -11,5 +11,5 @@ export default function Home() {
   if (!isLoaded) return null;
   if (!isSignedIn) return <Redirect href="/login" />;
 
-  return <HomeScreen profileImage={user?.imageUrl} onOpenProfile={() => router.push('/profile')} />;
+  return <HomeScreen profileImage={user?.imageUrl} onOpenProfile={() => router.push('/profile')} onCreatePlan={() => router.push('/drafts')} />;
 }

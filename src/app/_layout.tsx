@@ -8,6 +8,8 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
 import { fontAssets } from "@/constants/fonts";
+import { colors } from "@/theme/colors";
+import { PlansProvider } from "@/store/plans";
 import { SavedEventsProvider } from "@/store/saved-events";
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY ?? "";
@@ -36,7 +38,13 @@ export default function RootLayout() {
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
       <SavedEventsProvider>
-        <Stack screenOptions={{ headerShown: false }} />
+        <PlansProvider>
+          <Stack screenOptions={{ headerShown: false }}>
+            {/* Set here, not inside the screen: changing a screen's own options while it is open re-presents it. */}
+            <Stack.Screen name="drafts" options={{ headerShown: true, title: "Make a plan", headerTintColor: colors.forest, headerTitleStyle: { fontFamily: "Poppins-SemiBold" }, headerBackButtonDisplayMode: "minimal" }} />
+            <Stack.Screen name="create-plan" options={{ presentation: "modal", headerShown: true, title: "New plan", headerTintColor: colors.forest, headerTitleStyle: { fontFamily: "Poppins-SemiBold" } }} />
+          </Stack>
+        </PlansProvider>
       </SavedEventsProvider>
     </ClerkProvider>
   );

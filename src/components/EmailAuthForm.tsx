@@ -1,5 +1,5 @@
 import { SymbolView } from "expo-symbols";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ComponentRef } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import Animated, {
   Easing,
@@ -52,7 +52,7 @@ export function EmailAuthForm({ mode, onBack }: EmailAuthFormProps) {
   // True while the "forgot password" screens replace the normal log-in fields.
   const [resetting, setResetting] = useState(false);
 
-  const emailInputRef = useRef<TextInput>(null);
+  const emailInputRef = useRef<ComponentRef<typeof TextInput>>(null);
 
   useEffect(() => {
     const timer = setTimeout(
