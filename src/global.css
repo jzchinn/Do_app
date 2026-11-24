@@ -172,7 +172,7 @@
 
 /* Home event list: reference proportions, Do palette and Poppins. */
 @utility event-filter {
-  @apply min-h-11 items-center justify-center rounded-full px-5 py-2.5;
+  @apply min-h-11 items-center justify-center rounded-full px-4 py-2.5;
 }
 
 @utility event-card {

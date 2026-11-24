@@ -441,6 +441,17 @@ Resolve matches atomically and make retries safe, so simultaneous responses cann
 
 ---
 
+## Before Launch
+
+Known stand-ins that must be replaced before real users:
+
+- **Place search uses Photon (free OpenStreetMap search, no key).** Switch to Google Places or Mapbox before launch. Call it from a backend function so the API key stays secret. Only `searchPlaces()` in `src/lib/places.ts` needs to change; the `Place` type (name, address, latitude, longitude) stays the same. Photon's public server is for light use, and its results need the "© OpenStreetMap contributors" credit, which the place search currently shows.
+- **Drafts and posted plans live in memory only** (`src/store/plans.tsx`). Move them to Supabase so they survive an app restart.
+- **"Post plan" only adds the plan to the poster's own "My events" list.** Sharing it needs the Supabase `plans` table, eligibility rules, and matching.
+- **Posted plans use a placeholder picture** (the login texture) until real plan photos exist.
+
+---
+
 ## Final Reminder
 
 Before every feature implementation:

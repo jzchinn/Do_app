@@ -1,6 +1,6 @@
 import { images } from '@/constants/images';
 
-export type EventCategory = 'Going' | 'Saved' | 'Past';
+export type EventCategory = 'Going' | 'Saved' | 'Past' | 'My events';
 
 type EventBase = {
   id: string;

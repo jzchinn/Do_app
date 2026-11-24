@@ -4,7 +4,7 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import type { DemoEvent } from '@/data/demo-events';
 import { colors } from '@/theme/colors';
 
-type Props = { event: DemoEvent; saved: boolean; onToggleSave: () => void };
+type Props = { event: DemoEvent; saved: boolean; onToggleSave?: () => void };
 
 export function EventCard({ event, saved, onToggleSave }: Props) {
   return (
@@ -35,9 +35,11 @@ export function EventCard({ event, saved, onToggleSave }: Props) {
             <Text className="font-poppins-semibold text-[12px] text-charcoal">{event.attendees.length} {event.status === 'past' ? 'went' : 'going'}</Text>
           </View>
         )}
-        <TouchableOpacity accessibilityRole="button" accessibilityLabel={`${saved ? 'Unsave' : 'Save'} ${event.title}`} accessibilityState={{ selected: saved }} onPress={onToggleSave} activeOpacity={0.7} className="h-11 w-11 items-center justify-center">
-          <SymbolView name={{ ios: saved ? 'heart.fill' : 'heart', android: 'favorite', web: 'favorite' }} size={24} tintColor={saved ? colors.forest : colors.charcoal} />
-        </TouchableOpacity>
+        {onToggleSave && (
+          <TouchableOpacity accessibilityRole="button" accessibilityLabel={`${saved ? 'Unsave' : 'Save'} ${event.title}`} accessibilityState={{ selected: saved }} onPress={onToggleSave} activeOpacity={0.7} className="h-11 w-11 items-center justify-center">
+            <SymbolView name={{ ios: saved ? 'heart.fill' : 'heart', android: 'favorite', web: 'favorite' }} size={24} tintColor={saved ? colors.forest : colors.charcoal} />
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
